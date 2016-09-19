@@ -1,6 +1,6 @@
 {
     'name': "Product Cost Price from suppliers auto",
-    'version': '9.0.1.0',
+    'version': '9.0.1.1',
     'depends': ['account'],
     'author': "Valentin THIRION, AbAKUS it-solutions SARL",
     'website': "http://www.abakusitsolutions.eu",
