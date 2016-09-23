@@ -7,7 +7,7 @@ class product_template_with_cost_price_auto(models.Model):
     _inherit = ['product.template']
 
     cost_price_from_suppliers = fields.Boolean('Auto cost from suppliers', default=True)
-    standard_price = fields.Float('Cost Price', compute='_compute_lowest_supplier_price', store=True)
+    standard_price = fields.Float('Cost Price', compute='_compute_lowest_supplier_price')
     manual_cost_price = fields.Float('Manual cost price', default=0)
 
     @api.one
