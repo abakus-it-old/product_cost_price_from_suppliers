@@ -25,7 +25,7 @@
                     <field name="manual_cost_price" attrs="{'invisible': [('cost_price_from_suppliers', '=', True)]}" readonly="1"/>
                     <label string="Price managed on template" />
                     <button type="object" name="open_product_template" string="Manage pricing on template product" icon="gtk-go-forward" />
-                    </xpath>
+                </xpath>
                 <xpath expr="(//field[@name='standard_price'])" position="attributes">
                     <attribute name="attrs">{'invisible': [('cost_price_from_suppliers', '=', False)]}</attribute>
                     <attribute name="readonly">1</attribute>

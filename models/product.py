@@ -27,14 +27,6 @@ class product_template_with_cost_price_auto(models.Model):
             self.standard_price = self.manual_cost_price
             _logger.debug("PT : Price computed manually (%s)", self.standard_price)
 
-"""            
-        # Set the flag on the child products
-        for variant in self.product_variant_ids:
-            variant.write({'cost_price_from_suppliers': self.cost_price_from_suppliers, 'manual_cost_price': self.manual_cost_price, 'standard_price': self.standard_price})
-#            variant.cost_price_from_suppliers = self.cost_price_from_suppliers
-#            variant.manual_cost_price = self.manual_cost_price
-            _logger.debug("\n\nPT : Variant (%s) computation: %s (price=%s)", variant, variant.cost_price_from_suppliers, variant.manual_cost_price)
-"""
 
 class product_product_with_cost_price_auto(models.Model):
     _inherit = ['product.product']
@@ -43,7 +35,7 @@ class product_product_with_cost_price_auto(models.Model):
     standard_price = fields.Float('Cost Price', related='product_tmpl_id.standard_price')
     manual_cost_price = fields.Float('Manual cost price', related="product_tmpl_id.manual_cost_price") #default=0)
 
-    """@api.multi
+    @api.multi
     def open_product_template(self):
         if self.product_tmpl_id:
             return {
@@ -54,7 +46,6 @@ class product_product_with_cost_price_auto(models.Model):
                 'view_type': 'form',
                 'view_mode': 'form',
                 }
-    """
 
     """@api.depends('cost_price_from_suppliers', 'seller_ids', 'manual_cost_price')
     @api.onchange('cost_price_from_suppliers', 'seller_ids', 'manual_cost_price')
